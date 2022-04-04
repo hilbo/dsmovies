@@ -1,0 +1,35 @@
+header {
+    display: flex;
+    background-color: #3e78b9;
+    height: 60px;
+    align-items: center;
+ }
+
+ header nav {
+    display: flex;
+    justify-content: space-between;
+ }
+
+ header nav h1 {
+    align-items: center;
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 0%;
+}
+
+header nav a, a:hover{
+    font-size: 15px;
+    font-weight: 400;
+    color: white;
+    text-decoration: none;
+ }
+
+.StyleGithub {
+    display: flex;
+    align-content: space-between;
+}
+
+ .StyleGithubimg {
+    display: flex;
+ }
