@@ -1,6 +1,10 @@
+import Navbar from "components/Navbar";
+
 function Listing() {
     return (
-        <h1>Listagem</h1>
+        <div>
+            <h1>Teste</h1>
+        </div>
     );
 }
 
