@@ -13,7 +13,7 @@ function Form() {
     };
 
     return (
-        <main>
+        <main className="container">
             <section className="formSection">
                 <div className="formCardFilme">
                     <div className="FormCardFilmeImg">
