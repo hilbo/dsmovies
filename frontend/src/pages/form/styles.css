@@ -1,6 +1,9 @@
 
 main {
-    height: 700px;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
 }
 
 .formSection {
@@ -13,33 +16,30 @@ main {
 .formCardFilme {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
-    width: 30%;
-    height: 85%;
-    margin-top: 10px;
+    width: 35%;
     background-color: white;
     border-radius: 8px 8px 8px 8px;
+    padding: 0px;
+    margin-top: 20px;
   }
+
+.FormCardFilmeImg {
+    display: flex;
+    width: 100%;
+}
 
  .formCardFilme svg{
     display: flex;
     width: 100%;
-    height: 38%;
-    margin-bottom: 0px;
-    border-radius: 8px 8px 0px 0px;
-    margin-bottom: 10px;
+    height: 100%;
+    border-radius: 8px 8px 0px 0px;  
 }
 
 .formDescriptionAvaliar {
     display: flex;
-    height: 60%;
-    width: 80%;
-    height: 50%;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
+    width: 100%;
+    padding: 10px;
     background-color: white;
     border-radius: 0 0 8px 8px;
  }
@@ -50,7 +50,7 @@ main {
     text-align: center;
     margin-bottom: 0%;
     padding-top: 0px;
-    width: 80%;
+    width: 100%;
     height: 10%;
     /* Limita exibição de caracteres*/
     overflow: hidden;
@@ -62,24 +62,15 @@ main {
  
 .formulario {
     margin: 0px;
-    padding: 0px;
+    padding: 10px;
     width: 100%;
-    height: 100%;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: column;
-}
-
-.formularioAvaliacao {
-    font-size: 12px;
-    display:flex;
-    flex-direction: column;
     height: 50%;
-    width: 100%;
+    flex-direction: column;
 }
 
-.formularioAvaliacao input {
+.formulario input {
+    display: flex;
     width: 100%;
     font-size: 14px;
     border: groove 1px;
@@ -92,40 +83,53 @@ main {
 }
 
 .formAvaliationBtn {
-    font-size: 14px;
-    width: 50%;
-    height: 100px;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     border-radius: 4px;
     margin: 0px;
-    padding: 0px;
-}
-
-.formAvaliationBtn button {
-    margin-bottom: 15px;
-    margin-top: 0px;
-    padding:0px;
-    background-color: #3e78b9;
+    padding-top: 60px;
+    font-size: 14px;
     width: 100%;
-    height: 50%;
-    border-radius: 4px;
-    
-    color: white;
+    background-color: inherit;
 }
 
-.formAvaliationBtn a {
+.ButtonAvaliarContainer {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #3e78b9;
-    color: white;
-    text-align: center;
-    text-decoration: none;
     width: 100%;
-    height: 50%;
+    margin-top: 10px;
+}
+
+.ButtonAvaliarContainer button {
+    margin: 0px;
+    padding: 0px;
+    background-color:  #3e78b9;
+    width: 50%;
+    height: 40px;
+    border-radius: 4px;
+    color: white;
+}
+
+.ButtonVoltarContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.ButtonVoltarContainer a {
+    margin: 10px;
+    padding-top: 10px;
+    background-color:  #3e78b9;
+    width: 50%;
+    border-radius: 4px;
+    color: white;
     border-radius: 4px 4px;
+    height: 40px;
+    text-align: center;
+    
 }
 
 .formAvaliationBtn a:hover {

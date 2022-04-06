@@ -16,17 +16,17 @@ function Form() {
         <main>
             <section className="formSection">
                 <div className="formCardFilme">
-                    
-                        {movie.image}
-                        <h3>{movie.title}</h3>
-                    
+                    <div className="FormCardFilmeImg">
+                    {movie.image}
+                    </div>
+                   
                     <div className="formDescriptionAvaliar">
-                        
+                        <h3>{movie.title}</h3>
                         <form action="" className="formulario">
-                            <div className="formularioAvaliacao">
-                                <div><label htmlFor="email">Informe seu e-mail</label></div>
-                                <div><input type="email" id="email" name="email" /></div>
-                                <div><label htmlFor="score">Informe sua avaliação</label></div>
+                            
+                                <label htmlFor="email">Informe seu e-mail</label>
+                                <input type="email" id="email" name="email" />
+                                <label htmlFor="score">Informe sua avaliação</label>
                                 <select className="selection" name="" id="">
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -34,10 +34,14 @@ function Form() {
                                     <option value="4">4</option>
                                     <option value="5">5</option>
                                 </select>
-                            </div>
+                            
                             <div className="formAvaliationBtn">
-                                <button type="submit" name="Avaliar">Avaliar</button>
-                                <a href="index.html">Voltar</a>
+                                <div className="ButtonAvaliarContainer">
+                                    <button type="submit" name="Avaliar">Avaliar</button>
+                                </div>
+                                <div className="ButtonVoltarContainer">
+                                    <a href="index.html">Voltar</a>
+                                </div>
                             </div>
                         </form>
                     </div>
