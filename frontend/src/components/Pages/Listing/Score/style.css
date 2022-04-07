@@ -1,0 +1,35 @@
+
+.Score{
+    margin-bottom: 0px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 14px;
+    color: rgb(255, 196, 0);
+    width: 70%;
+ }
+ 
+ .Score a {
+    display: flex;
+    justify-content: center;
+    font-size: 15px;
+    color: rgb(255, 196, 0);
+ }
+ 
+ .Score p {
+    margin-bottom: 10px;
+    font-size: 12px;
+    text-align: center;
+ }
+ 
+ .Star {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+ }
+ 
+ .Star svg {
+    height:40px;
+    width: 40px;
+    
+ }

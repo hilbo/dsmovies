@@ -1,4 +1,4 @@
-import Navbar from "components/Navbar";
+import Navbar from "components/Pages/Global/Navbar";
 import 'pages/form/styles.css';
 import { ReactComponent as ImgFilme } from "assets/img/filme01.svg";
 
@@ -13,7 +13,7 @@ function Form() {
     };
 
     return (
-        <main className="container">
+        <main>
             <section className="formSection">
                 <div className="formCardFilme">
                     <div className="FormCardFilmeImg">

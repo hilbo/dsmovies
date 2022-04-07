@@ -1,200 +1,32 @@
 import 'pages/listing/styles.css'
-import { ReactComponent as Setas } from 'assets/img/filme01.svg';
+import { ReactComponent as Seta } from 'assets/img/Seta.svg';
+import { ReactComponent as MovieImg } from 'assets/img/filme01.svg';
+import 'components/Pages/Listing/Score';
+import 'components/Pages/Listing/Score/style.css';
+import Score from 'components/Pages/Listing/Score';
+import SelectionPage from 'components/Pages/Listing/NavegationPage';
 
 
 function Listing() {
     return (
         <div className="All">
-
-            <div className="SelectionPageContainer container">
-                <button disabled title="Voltar" className="ButtonLeft">Imagen Seta</button>
-                <a>1 de 200999999999999</a>
-                <button title="Avançar">Imagem Seta</button>
-            </div>
-
-            <div className="row SelectionHtml">
-
+            <SelectionPage />
+            <div className="row Section">
                 <div className="col-sm-6 col-lg-3 col-xl-2">
                     <div className="CardFilme">
                         <div className="CardFilmeImg" >
-                            <Setas />
+                            <MovieImg />
                         </div>
                         <div className="DescriptionBody">
                             <div className="Description">
                                 <h3>Mulher em fúria: Produção de ação</h3>
                                 <a> Detalhameno: dfsdsdfs fdas d </a>
                             </div>
-                            <div className="Score">
-                                <a>3,8</a>
-                                <div className="Star container">
-                                </div>
-                                <p>13 Avaliações</p>
-                                <div className="AvaliationBtn container">
-                                    <a href="form.html">Avaliar</a>
-                                </div>
-                            </div>
+                            <Score />
                         </div>
                     </div>
                 </div>
-
-                <div className="col-sm-6 col-lg-3 col-xl-2">
-                    <div className="CardFilme">
-                        <div className="CardFilmeImg" ><Setas /></div>
-                        <div className="DescriptionBody">
-                            <div className="Description">
-                                <h3>Mulher em fúria: Produção de ação</h3>
-                                <a> Detalhameno: dfsdsdfs fdas d </a>
-                            </div>
-                            <div className="Score">
-                                <a>3,8</a>
-                                <div className="Star container">
-
-                                </div>
-                                <p>13 Avaliações</p>
-                                <div className="AvaliationBtn container">
-                                    <a href="form.html">Avaliar</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="col-sm-6 col-lg-3 col-xl-2">
-                    <div className="CardFilme">
-                        <div className="CardFilmeImg" ><Setas /></div>
-                        <div className="DescriptionBody">
-                            <div className="Description">
-                                <h3>Mulher em fúria: Produção de ação</h3>
-                                <a> Detalhameno: dfsdsdfs fdas d </a>
-                            </div>
-                            <div className="Score">
-                                <a>3,8</a>
-                                <div className="Star container">
-
-                                </div>
-                                <p>13 Avaliações</p>
-                                <div className="AvaliationBtn container">
-                                    <a href="form.html">Avaliar</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="col-sm-6 col-lg-3 col-xl-2">
-                    <div className="CardFilme">
-                        <div className="CardFilmeImg" ><Setas /></div>
-                        <div className="DescriptionBody">
-                            <div className="Description">
-                                <h3>Mulher em fúria: Produção de ação</h3>
-                                <a> Detalhameno: dfsdsdfs fdas d </a>
-                            </div>
-                            <div className="Score">
-                                <a>3,8</a>
-                                <div className="Star container">
-
-                                </div>
-                                <p>13 Avaliações</p>
-                                <div className="AvaliationBtn container">
-                                    <a href="form.html">Avaliar</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="col-sm-6 col-lg-3 col-xl-2">
-                    <div className="CardFilme">
-                        <div className="CardFilmeImg" ><Setas /></div>
-                        <div className="DescriptionBody">
-                            <div className="Description">
-                                <h3>Mulher em fúria: Produção de ação</h3>
-                                <a> Detalhameno: dfsdsdfs fdas d </a>
-                            </div>
-                            <div className="Score">
-                                <a>3,8</a>
-                                <div className="Star container">
-
-                                </div>
-                                <p>13 Avaliações</p>
-                                <div className="AvaliationBtn container">
-                                    <a href="form.html">Avaliar</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="col-sm-6 col-lg-3 col-xl-2">
-                    <div className="CardFilme">
-                        <div className="CardFilmeImg" ><Setas /></div>
-                        <div className="DescriptionBody">
-                            <div className="Description">
-                                <h3>Mulher em fúria: Produção de ação</h3>
-                                <a> Detalhameno: dfsdsdfs fdas d </a>
-                            </div>
-                            <div className="Score">
-                                <a>3,8</a>
-                                <div className="Star container">
-
-                                </div>
-                                <p>13 Avaliações</p>
-                                <div className="AvaliationBtn container">
-                                    <a href="form.html">Avaliar</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="col-sm-6 col-lg-3 col-xl-2">
-                    <div className="CardFilme">
-                        <div className="CardFilmeImg" ><Setas /></div>
-                        <div className="DescriptionBody">
-                            <div className="Description">
-                                <h3>Mulher em fúria: Produção de ação</h3>
-                                <a> Detalhameno: dfsdsdfs fdas d </a>
-                            </div>
-                            <div className="Score">
-                                <a>3,8</a>
-                                <div className="Star container">
-
-                                </div>
-                                <p>13 Avaliações</p>
-                                <div className="AvaliationBtn container">
-                                    <a href="form.html">Avaliar</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="col-sm-6 col-lg-3 col-xl-2">
-                    <div className="CardFilme">
-                        <div className="CardFilmeImg" ><Setas /></div>
-                        <div className="DescriptionBody">
-                            <div className="Description">
-                                <h3>Mulher em fúria: Produção de ação</h3>
-                                <a> Detalhameno: dfsdsdfs fdas d </a>
-                            </div>
-                            <div className="Score">
-                                <a>3,8</a>
-                                <div className="Star container">
-
-                                </div>
-                                <p>13 Avaliações</p>
-                                <div className="AvaliationBtn container">
-                                    <a href="form.html">Avaliar</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
-
-
-
         </div>
     );
 
