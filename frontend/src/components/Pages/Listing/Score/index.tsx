@@ -2,12 +2,23 @@ import { ReactComponent as StarFull } from 'assets/img/StarFull.svg';
 import { ReactComponent as StarHalf } from 'assets/img/StarHalf.svg';
 import { ReactComponent as StarEmpty } from 'assets/img/StarEmpty.svg';
 import 'components/Pages/Listing/Score/style.css';
+import ButtonAvaliation from 'components/Global/Button/ButtonAvaliation';
+import { Link } from 'react-router-dom';
+
+
 
 function score() {
 
+    const count = 0;
+    var score = count * 0.1;
+
+    if (count <= 0) {
+        score = 50;
+    };
+
     return (
         <div className="Score">
-            <a>3,8</a>
+            <p className="ScoreScore">{score}</p>
             <div className="Star container">
                 <StarFull />
                 <StarFull />
@@ -15,10 +26,13 @@ function score() {
                 <StarHalf />
                 <StarEmpty />
             </div>
-            <p>13 Avaliações</p>
-            <div className="AvaliationBtn container">
-                <a href="form.html">Avaliar</a>
+            <p className="ScoreCount">{count} Avaliações</p>
+            <div className="BtnAvaliation">
+                <Link to='/form/1'>
+                    <ButtonAvaliation />
+                </Link>
             </div>
+
         </div>
     );
 }
