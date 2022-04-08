@@ -6,14 +6,14 @@ import {
 import Listing from 'pages/listing';
 import Form from "pages/form";
 import Navbar from "components/Pages/Global/Navbar";
-import NavegationPage from "components/Pages/Listing/NavegationPage";
+import NavegationControl from "components/Pages/Listing/NavegationControl";
 
 function App() {
   return (
     <BrowserRouter>
      <Navbar />
       <Routes>
-        <Route path="/dev" element={<NavegationPage />} />
+        <Route path="/dev" element={<NavegationControl />} />
         <Route path="/" element={<Listing />} />
         <Route path="/form">
           <Route path=":movieId" element={<Form />} />

@@ -1,4 +1,4 @@
-import NavegationPage from 'components/Pages/Listing/NavegationPage';
+import NavegationControl from 'components/Pages/Listing/NavegationControl';
 import MovieCard from 'components/Pages/Listing/MovieCard';
 import 'pages/listing/style.css';
 
@@ -6,7 +6,7 @@ function Listing() {
     return (
 
         <div className="row Section">
-            <NavegationPage />
+            <NavegationControl />
             <MovieCard />
             <MovieCard />
             <MovieCard />

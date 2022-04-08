@@ -1,7 +1,7 @@
 import { ReactComponent as Seta } from 'assets/img/Seta.svg';
-import 'components/Pages/Listing/NavegationPage/style.css';
+import 'components/Pages/Listing/NavegationControl/style.css';
 
-function NavegationPage() {
+function NavegationControl() {
 
     return (
         <div className="SelectionPageContainer container">
@@ -12,4 +12,4 @@ function NavegationPage() {
     );
 }
 
-export default NavegationPage;
+export default NavegationControl;
