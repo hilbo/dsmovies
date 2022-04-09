@@ -40,6 +40,11 @@ public class User implements Serializable{
 		this.email = email;
 	}
 
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", email=" + email + "]";
+	}
+
 	
 	
 }

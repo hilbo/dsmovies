@@ -1,5 +1,7 @@
 package com.domain.dsmovie.config;
 
+import java.util.Arrays;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
@@ -15,19 +17,19 @@ import com.domain.dsmovie.repository.UserRepository;
 public class InicialBD implements CommandLineRunner {
 	@Autowired
 	private UserRepository userRepository;
-	
 	@Autowired
 	private MovieRepository movieRepository;
-	
 	@Autowired
 	private ScoreRepository scoreRepository;
-	
-				
+					
 	@Override
 	public void run(String... args) throws Exception {
 		
 		User user01 = new User(null, "hilbo.cardeira@gmail.com");
-		userRepository.save(user01);
+		User user02 = new User(null, "Irineu.cardeira@gmail.com");
+		User user03 = new User(null, "Hugo.cardeira@gmail.com");
+		User user04 = new User(null, "lazaro.cardeira@gmail.com");
+		userRepository.saveAll(Arrays.asList(user01,user02,user03,user04));
 		
 		Movie movie01 = new Movie(null, "The Spider Man", 5.0, 10, "Imagem Spaider Man");
 		movieRepository.save(movie01);
@@ -43,5 +45,9 @@ public class InicialBD implements CommandLineRunner {
 		score02.setUser(user01);
 		score02.setMovie(movie01);
 		scoreRepository.save(score02);
+		
+		System.out.println("####################################################");
+		System.out.println(score01);
+		System.out.println("####################################################");
 	}
 }

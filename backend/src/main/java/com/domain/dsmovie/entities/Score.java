@@ -13,11 +13,12 @@ import javax.persistence.Table;
 public class Score implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
+	private Double value;
+	
 	@Id
 	@GeneratedValue
 	private Long id;
-	private Double value;
-	
+			
 	@OneToOne
 	@JoinColumn(name="movie_id")
 	private Movie movie;
@@ -60,6 +61,13 @@ public class Score implements Serializable {
 	public void setUser(User user) {
 		this.user = user;
 	}
+
+	@Override
+	public String toString() {
+		return "Score [value=" + value + ", id=" + id + ", movie=" + movie + ", user=" + user + "]";
+	}
+	
+	
 }
 
 	
