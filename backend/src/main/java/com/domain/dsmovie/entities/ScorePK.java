@@ -1,14 +1,10 @@
 package com.domain.dsmovie.entities;
 
 import java.io.Serializable;
+
 import javax.persistence.Embeddable;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-
-import org.hibernate.annotations.ManyToAny;
 
 @Embeddable
 public class ScorePK implements Serializable{
