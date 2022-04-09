@@ -1,10 +1,18 @@
 package com.domain.dsmovie.entities;
 
 import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "tb_user")
 public class User implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
+	@Id
+	@GeneratedValue
 	private Long id;
 	private String email;
 	
@@ -32,11 +40,6 @@ public class User implements Serializable{
 		this.email = email;
 	}
 
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", email=" + email + "]";
-	}
-	
 	
 	
 }
