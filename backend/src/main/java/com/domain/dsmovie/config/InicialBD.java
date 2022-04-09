@@ -32,21 +32,23 @@ public class InicialBD implements CommandLineRunner {
 		userRepository.saveAll(Arrays.asList(user01,user02,user03,user04));
 		
 		Movie movie01 = new Movie(null, "The Spider Man", 5.0, 10, "Imagem Spaider Man");
-		movieRepository.save(movie01);
+		Movie movie02 = new Movie(null, "Tropa de Elite", 3.0, 9, "Imagem Tropa de Elite");
+		movieRepository.saveAll(Arrays.asList(movie01, movie02));
 		
 		Score score01 = new Score();
 		score01.setValue(3.0);
-		score01.setUser(user01);
 		score01.setMovie(movie01);
+		score01.setUser(user01);
 		scoreRepository.save(score01);
 		
 		Score score02 = new Score();
 		score02.setValue(12.0);
-		score02.setUser(user01);
-		score02.setMovie(movie01);
+		score02.setUser(user04);
+		score02.setMovie(movie02);
 		scoreRepository.save(score02);
 		
 		System.out.println("####################################################");
+		System.out.println(score01);
 		System.out.println(score01);
 		System.out.println("####################################################");
 	}

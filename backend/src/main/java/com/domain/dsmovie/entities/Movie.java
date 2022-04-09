@@ -76,7 +76,5 @@ public class Movie implements Serializable {
 		return "Movie [id=" + id + ", title=" + title + ", score=" + score + ", count=" + count + ", image=" + image
 				+ "]";
 	}
-	
-	
 
 }
