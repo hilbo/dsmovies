@@ -1,9 +1,11 @@
 package com.domain.dsmovie.entities;
 
 import java.io.Serializable;
-
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -11,12 +13,28 @@ import javax.persistence.Table;
 public class Score implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
-	@EmbeddedId
-	private ScorePK scorePkId = new ScorePK();
-	
+	@Id
+	@GeneratedValue
+	private Long id;
 	private Double value;
-					
+	
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	private User user;
+	
+	@ManyToOne
+	@JoinColumn(name="movie_id")
+	private Movie movie;
+						
 	public Score() {
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public Double getValue() {
@@ -27,18 +45,22 @@ public class Score implements Serializable {
 		this.value = value;
 	}
 
-	public void setMovie(Movie movie) {
-		scorePkId.setMovie(movie);
-	}
-	
-	public void setUser(User user) {
-		scorePkId.setUser(user);
+	public User getUser() {
+		return user;
 	}
 
-	@Override
-	public String toString() {
-		return "Score [scorePkId=" + scorePkId + ", value=" + value + "]";
+	public void setUser(User user) {
+		this.user = user;
 	}
+
+	public Movie getMovie() {
+		return movie;
+	}
+
+	public void setMovie(Movie movie) {
+		this.movie = movie;
+	}
+	
 		
 }
 
