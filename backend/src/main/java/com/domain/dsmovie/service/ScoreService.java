@@ -18,22 +18,22 @@ import com.domain.dsmovie.repository.UserRepository;
 
 @Service
 public class ScoreService {
-	
+
 	@Autowired
 	ScoreRepository scoreRepository;
-	
+
 	@Autowired
 	MovieRepository movieRepository;
-	
+
 	@Autowired
 	UserRepository userRepository;
-	
+
 	public List<Score> findAll() {
 		return scoreRepository.findAll();
 	}
-	
-	public List<ScoreDTO> listScoreDTO(){
-		List<ScoreDTO> lscore= new ArrayList<>();
+
+	public List<ScoreDTO> listScoreDTO() {
+		List<ScoreDTO> lscore = new ArrayList<>();
 		for (Score score : scoreRepository.findAll()) {
 			ScoreDTO scoreDTO = new ScoreDTO();
 			scoreDTO.setMovieId(score.getMovie().getId());
@@ -43,19 +43,25 @@ public class ScoreService {
 		}
 		return lscore;
 	}
-	
+
+	public List<Score> scorePerMovie(Long movieId) {
+		Movie movie = new Movie();
+		movie = movieRepository.findById(movieId).get();
+		return movie.getScores();
+	}
+
 	@Transactional
 	public Score save(ScoreDTO scoreDTO) {
 		Score score = new Score();
 		User user = new User();
 		user = userRepository.findByEmail(scoreDTO.getUserEmail());
-		if(user == null){
+		if (user == null) {
 			User user2 = new User();
 			user2.setEmail(scoreDTO.getUserEmail());
 			userRepository.save(user2);
 			score.setUser(user2);
-			
-		}else {
+
+		} else {
 			user.setEmail(scoreDTO.getUserEmail());
 			score.setUser(user);
 		}
@@ -66,38 +72,33 @@ public class ScoreService {
 		movieScoreCalc(scoreDTO);
 		return scoreRepository.save(score);
 	}
-	
+
 	@Transactional
 	public Double movieScoreCalc(ScoreDTO scoreDTO) {
 		Double calcScore = 0.0;
 		Double soma = scoreDTO.getValue();
 		List<Score> scores = new ArrayList<>();
-		
+
+		for (Score score2 : scorePerMovie(scoreDTO.getMovieId())) {
+			soma = soma + score2.getValue();
+			scores.add(score2);
+		}
 		Movie movie = new Movie();
 		movie = movieRepository.findById(scoreDTO.getMovieId()).get();
-		
-		for (Score score2 : scoreRepository.findPerMovie(movie)) {
-				soma = soma + score2.getValue(); 
-				scores.add(score2);
-			}
-			
-			movie.setCount(scores.size() + 1);
-			calcScore = soma / (movie.getCount());
-			movie.setScore(calcScore);
-			movieRepository.save(movie);
-		
+		movie.setCount(scores.size() + 1);
+		calcScore = soma / (movie.getCount());
+		movie.setScore(calcScore);
+		movieRepository.save(movie);
+
 		return calcScore;
 	}
-	
+
 	public Score scoreToScoreDTO(ScoreDTO scoreDTO) {
 		Score score = new Score();
 		score.setValue(scoreDTO.getValue());
-		//User user = new User();
-		//user.setEmail(scoreDTO.getUserEmail());
 		Movie movie = new Movie();
 		movie.setId(scoreDTO.getMovieId());
 		score.setMovie(movie);
-		//score.setUser(user);
 		return score;
 	}
 }

@@ -1,11 +1,16 @@
 package com.domain.dsmovie.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "tb_movie")
@@ -19,6 +24,10 @@ public class Movie implements Serializable {
 	private Double score;
 	private Integer count;
 	private String image;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "movie")
+	private List<Score> scores = new ArrayList<>(); 
 
 	public Movie() {
 	}
@@ -75,6 +84,10 @@ public class Movie implements Serializable {
 	public String toString() {
 		return "Movie [id=" + id + ", title=" + title + ", score=" + score + ", count=" + count + ", image=" + image
 				+ "]";
+	}
+
+	public List<Score> getScores() {
+		return scores;
 	}
 
 }
