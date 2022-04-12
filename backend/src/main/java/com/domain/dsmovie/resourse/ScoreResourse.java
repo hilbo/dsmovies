@@ -4,8 +4,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import com.domain.dsmovie.DTO.ScoreDTO;
 import com.domain.dsmovie.entities.Score;
 import com.domain.dsmovie.service.ScoreService;
 
@@ -16,7 +19,19 @@ public class ScoreResourse {
 	@Autowired ScoreService scoreService;
 	
 	@GetMapping
-	public ResponseEntity<List<Score>> findAll(){
+	public ResponseEntity <List<Score>> findAll(){
 		return ResponseEntity.ok().body(scoreService.findAll());
 	}
+	
+	@PostMapping
+	public ResponseEntity<Score> save(@RequestBody ScoreDTO scoreDTO){
+		return ResponseEntity.ok(scoreService.save(scoreDTO));
+	}
+	
+	@GetMapping("/listdto")
+	public ResponseEntity <List<ScoreDTO>> findAllDTO(){
+		return ResponseEntity.ok().body(scoreService.listScoreDTO());
+	}
+	
+	
 }

@@ -60,7 +60,11 @@ public class Score implements Serializable {
 	public void setMovie(Movie movie) {
 		this.movie = movie;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Score [id=" + id + ", value=" + value + ", user=" + user + ", movie=" + movie + "]";
+	}
 		
 }
 
