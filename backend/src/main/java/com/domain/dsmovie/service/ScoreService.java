@@ -8,34 +8,33 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.domain.dsmovie.DTO.ScoreDTO;
+import com.domain.dsmovie.DTO.ScoreFormDTO;
 import com.domain.dsmovie.entities.Movie;
 import com.domain.dsmovie.entities.Score;
 import com.domain.dsmovie.entities.User;
-import com.domain.dsmovie.repository.MovieRepository;
 import com.domain.dsmovie.repository.ScoreRepository;
-import com.domain.dsmovie.repository.UserRepository;
+
 
 @Service
 public class ScoreService {
 
 	@Autowired
 	ScoreRepository scoreRepository;
-
+	
 	@Autowired
-	MovieRepository movieRepository;
-
+	UserService userService;
+	
 	@Autowired
-	UserRepository userRepository;
-
+	MovieService movieService;
+			
 	public List<Score> findAll() {
 		return scoreRepository.findAll();
 	}
 
-	public List<ScoreDTO> listScoreDTO() {
-		List<ScoreDTO> lscore = new ArrayList<>();
+	public List<ScoreFormDTO> listScoreDTO() {
+		List<ScoreFormDTO> lscore = new ArrayList<>();
 		for (Score score : scoreRepository.findAll()) {
-			ScoreDTO scoreDTO = new ScoreDTO();
+			ScoreFormDTO scoreDTO = new ScoreFormDTO();
 			scoreDTO.setMovieId(score.getMovie().getId());
 			scoreDTO.setUserEmail(score.getUser().getEmail());
 			scoreDTO.setValue(score.getValue());
@@ -46,54 +45,47 @@ public class ScoreService {
 
 	public List<Score> scorePerMovie(Long movieId) {
 		Movie movie = new Movie();
-		movie = movieRepository.findById(movieId).get();
+		movie = movieService.findById(movieId);
 		return movie.getScores();
 	}
 
 	@Transactional
-	public Score save(ScoreDTO scoreDTO) {
+	public Score save(ScoreFormDTO scorFormDTO) {
 		Score score = new Score();
+		
 		User user = new User();
-		user = userRepository.findByEmail(scoreDTO.getUserEmail());
-		if (user == null) {
-			User user2 = new User();
-			user2.setEmail(scoreDTO.getUserEmail());
-			userRepository.save(user2);
-			score.setUser(user2);
-
-		} else {
-			user.setEmail(scoreDTO.getUserEmail());
-			score.setUser(user);
-		}
-		score.setValue(scoreDTO.getValue());
+		user.setEmail(scorFormDTO.getUserEmail());
+		user = userService.save(user);
+		
+		score.setUser(user);
+		score.setValue(scorFormDTO.getValue());
 		Movie movie = new Movie();
-		movie = movieRepository.findById(scoreDTO.getMovieId()).get();
+		movie = movieService.findById(scorFormDTO.getMovieId());
 		score.setMovie(movie);
-		movieScoreCalc(scoreDTO);
+		movieScoreCalc(scorFormDTO);
 		return scoreRepository.save(score);
 	}
 
-	@Transactional
-	public Double movieScoreCalc(ScoreDTO scoreDTO) {
+	public Double movieScoreCalc(ScoreFormDTO scorFormDTO) {
 		Double calcScore = 0.0;
-		Double soma = scoreDTO.getValue();
+		Double soma = scorFormDTO.getValue();
 		List<Score> scores = new ArrayList<>();
 
-		for (Score score2 : scorePerMovie(scoreDTO.getMovieId())) {
+		for (Score score2 : scorePerMovie(scorFormDTO.getMovieId())) {
 			soma = soma + score2.getValue();
 			scores.add(score2);
 		}
 		Movie movie = new Movie();
-		movie = movieRepository.findById(scoreDTO.getMovieId()).get();
+		movie = movieService.findById(scorFormDTO.getMovieId());
 		movie.setCount(scores.size() + 1);
 		calcScore = soma / (movie.getCount());
 		movie.setScore(calcScore);
-		movieRepository.save(movie);
+		movieService.save(movie);
 
 		return calcScore;
 	}
 
-	public Score scoreToScoreDTO(ScoreDTO scoreDTO) {
+	public Score scoreToScoreDTO(ScoreFormDTO scoreDTO) {
 		Score score = new Score();
 		score.setValue(scoreDTO.getValue());
 		Movie movie = new Movie();

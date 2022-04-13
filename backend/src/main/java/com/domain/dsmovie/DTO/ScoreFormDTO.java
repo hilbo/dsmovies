@@ -2,16 +2,16 @@ package com.domain.dsmovie.DTO;
 
 import java.io.Serializable;
 
-public class ScoreDTO implements Serializable{
+public class ScoreFormDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	private Long movieId;
 	private String userEmail;
 	private Double value;
 	
-	public ScoreDTO() {
+	public ScoreFormDTO() {
 	}
-		
+			
 	public Long getMovieId() {
 		return movieId;
 	}
