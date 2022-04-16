@@ -30,6 +30,10 @@ public class ScoreService {
 	public List<Score> findAll() {
 		return scoreRepository.findAll();
 	}
+	
+	public Score findById(Long id) {
+		return scoreRepository.findById(id).get();
+	}
 
 	public List<ScoreFormDTO> listScoreDTO() {
 		List<ScoreFormDTO> lscore = new ArrayList<>();
@@ -50,19 +54,20 @@ public class ScoreService {
 	}
 
 	@Transactional
-	public Score save(ScoreFormDTO scorFormDTO) {
+	public Score save(ScoreFormDTO scoreFormDTO) {
 		Score score = new Score();
 		
 		User user = new User();
-		user.setEmail(scorFormDTO.getUserEmail());
+		user.setEmail(scoreFormDTO.getUserEmail());
 		user = userService.save(user);
 		
 		score.setUser(user);
-		score.setValue(scorFormDTO.getValue());
+		score.setValue(scoreFormDTO.getValue());
 		Movie movie = new Movie();
-		movie = movieService.findById(scorFormDTO.getMovieId());
+		movie = movieService.findById(scoreFormDTO.getMovieId());
 		score.setMovie(movie);
-		movieScoreCalc(scorFormDTO);
+		movieScoreCalc(scoreFormDTO);
+				
 		return scoreRepository.save(score);
 	}
 

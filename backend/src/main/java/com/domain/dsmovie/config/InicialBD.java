@@ -45,7 +45,25 @@ public class InicialBD implements CommandLineRunner {
 				
 		Movie movie01 = new Movie(null, "The Spider Man", 0.0, 0, "Imagem Spaider Man");
 		Movie movie02 = new Movie(null, "Tropa de Elite", 0.0, 0, "Imagem Tropa de Elite");
-		for(Movie movieTmp : Arrays.asList(movie01, movie02)) {
+		Movie movie03 = new Movie(null, "f3", 0.0, 0, "Imagem Spaider Man");
+		Movie movie04 = new Movie(null, "f4", 0.0, 0, "Imagem Spaider Man");
+		Movie movie05 = new Movie(null, "f5", 0.0, 0, "Imagem Spaider Man");		Movie movie06 = new Movie(null, "f6", 0.0, 0, "Imagem Spaider Man");
+		Movie movie07 = new Movie(null, "f7", 0.0, 0, "Imagem Spaider Man");
+		Movie movie08 = new Movie(null, "f8", 0.0, 0, "Imagem Spaider Man");
+		Movie movie09 = new Movie(null, "f9", 0.0, 0, "Imagem Spaider Man");
+		Movie movie10 = new Movie(null, "f10", 0.0, 0, "Imagem Spaider Man");
+		Movie movie11 = new Movie(null, "f11", 0.0, 0, "Imagem Spaider Man");
+		Movie movie12 = new Movie(null, "f12", 0.0, 0, "Imagem Spaider Man");
+		Movie movie13 = new Movie(null, "f13", 0.0, 0, "Imagem Spaider Man");
+		Movie movie14 = new Movie(null, "f14", 0.0, 0, "Imagem Spaider Man");
+		Movie movie15 = new Movie(null, "f15", 0.0, 0, "Imagem Spaider Man");
+		Movie movie16 = new Movie(null, "f16", 0.0, 0, "Imagem Spaider Man");
+		Movie movie17 = new Movie(null, "f17", 0.0, 0, "Imagem Spaider Man");
+			
+		
+		for(Movie movieTmp : Arrays.asList(movie01, movie02, movie03, movie04, movie05
+			, movie06, movie07, movie08, movie09, movie10, movie11, movie12, movie13
+			, movie14, movie15, movie16, movie17)) {
 			movieService.save(movieTmp);
 		}
 				
