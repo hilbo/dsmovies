@@ -7,8 +7,9 @@ import { MoviePage } from 'types/movie';
 import { hostPort } from 'config/conf';
 
 function Listing() {
-    const [pageNumber, setPageNumber] = useState(0);
     
+    const [pageNumber, setPageNumber] = useState(0);
+      
     const [Page, setPage] = useState<MoviePage>({
         content: [],
         last: true,
@@ -16,26 +17,30 @@ function Listing() {
         totalElements: 0,
         size: 8,
         number: 0,
-        first: true,
+        first: false,
         numberOfElements: 0,
         empty: true,
     });
-
-    const complenent = `movies?size=${pageNumber}`;
+   
+    const complenent = `movies?size=6&page=${pageNumber}`;
     const endPoint = hostPort + complenent;
-
+      
     useEffect(() => {
         axios.get(endPoint)
             .then(resposta => {
                 const data2 = resposta.data as MoviePage;
-                console.log(data2);
                 setPage(data2);
             })
-    }, [endPoint]);
+    }, [pageNumber]);
+
+    
+    function changePageNumber (number : number){
+        setPageNumber(number);
+    }
 
     return (
         <>
-            <NavegationControl />
+            <NavegationControl moviePage = {Page} changePageNumber = {changePageNumber} />
             <div className="row Section">
                 {Page.content.map(movie => (
                     <MovieCard key={movie.id} movie={movie} />

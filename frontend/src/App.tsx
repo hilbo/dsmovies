@@ -13,7 +13,6 @@ function App() {
     <BrowserRouter>
      <Navbar />
       <Routes>
-        <Route path="/dev" element={<NavegationControl />} />
         <Route path="/" element={<Listing />} />
         <Route path="/form">
           <Route path=":movieId" element={<Form />} />
