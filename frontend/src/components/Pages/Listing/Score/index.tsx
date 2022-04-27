@@ -4,10 +4,13 @@ import { ReactComponent as StarEmpty } from 'assets/img/StarEmpty.svg';
 import 'components/Pages/Listing/Score/style.css';
 import ButtonAvaliation from 'components/Global/Button/ButtonAvaliation';
 import { Link } from 'react-router-dom';
+import {Movie} from 'types/movie';
 
+type Props = {
+    movie : Movie;
+}
 
-
-function score() {
+function score({movie} : Props) {
 
     const count = 0;
     var score = count * 0.1;
@@ -28,7 +31,7 @@ function score() {
             </div>
             <p className="ScoreCount">{count} Avaliações</p>
             <div className="BtnAvaliation">
-                <Link to='/form/1'>
+                <Link to= {`/form/${movie.id}`}>
                     <ButtonAvaliation />
                 </Link>
             </div>

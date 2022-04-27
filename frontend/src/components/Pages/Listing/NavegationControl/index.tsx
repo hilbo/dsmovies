@@ -1,6 +1,5 @@
 import { ReactComponent as Seta } from 'assets/img/Seta.svg';
 import 'components/Pages/Listing/NavegationControl/style.css';
-import { useState } from 'react';
 import { MoviePage } from 'types/movie';
 
 
@@ -11,9 +10,10 @@ type Props = {
 
 function NavegationControl({moviePage, changePageNumber} : Props) {
     
-    function backPage (){
+    /*function backPage (){
         changePageNumber(moviePage.number - 1);
-    }
+    }*/
+
     function nextPage (){
         changePageNumber(moviePage.number + 1);
     }
@@ -21,7 +21,7 @@ function NavegationControl({moviePage, changePageNumber} : Props) {
     return (
         <div className="SelectionPageContainer container">
             <button disabled={moviePage.first} title="Voltar" className="ButtonLeft" 
-            onClick={() => changePageNumber(moviePage.number - 1)}>
+            onClick ={() => changePageNumber(moviePage.number - 1)}>
             <Seta /></button>
                 
             

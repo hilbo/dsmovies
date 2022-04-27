@@ -1,6 +1,4 @@
 
-
-import { ReactComponent as MovieImg } from 'assets/img/bat.svg';
 import Score from 'components/Pages/Listing/Score';
 import 'components/Pages/Listing/MovieCard/style.css';
 import { Movie } from 'types/movie';
@@ -22,7 +20,7 @@ function MovieCard({ movie }: Props) {
                         <h3>{movie.title}</h3>
                         <p> Detalhameno:</p>
                     </div>
-                    <Score />
+                    <Score movie={movie} />
                 </div>
             </div>
         </div>
