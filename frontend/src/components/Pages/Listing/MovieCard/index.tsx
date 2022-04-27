@@ -18,7 +18,7 @@ function MovieCard({ movie }: Props) {
                 <div className="DescriptionBody">
                     <div className="Description">
                         <h3>{movie.title}</h3>
-                        <p> Detalhameno:</p>
+                        {/*<p> Detalhameno:</p>*/}
                     </div>
                     <Score movie={movie} />
                 </div>

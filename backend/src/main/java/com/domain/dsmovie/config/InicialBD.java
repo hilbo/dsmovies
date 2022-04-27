@@ -71,9 +71,9 @@ public class InicialBD implements CommandLineRunner {
 		Score score01 = new Score(); 
 		score01.setUser(user01);
 		score01.setMovie(movie01);
-		score01.setValue(10.0);
+		score01.setValue(5.0);
 		movie01.setCount(1);
-		movie01.setScore(10.0);
+		movie01.setScore(5.0);
 		movieService.save(movie01);
 		scoreRepository.save(score01);
 	}

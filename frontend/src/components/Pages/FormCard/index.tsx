@@ -14,7 +14,7 @@ function FormCard(movieId : Props) {
     
     const [movie, setMovie] = useState<Movie>();
     useEffect(() => {
-        axios.get(`http://localhost:8070/movies/${movieId.movieId}`)
+        axios.get(`${hostPort}movies/${movieId.movieId}`)
             .then(resposta => {
                 const data2 = resposta.data as Movie;
                 setMovie(data2);

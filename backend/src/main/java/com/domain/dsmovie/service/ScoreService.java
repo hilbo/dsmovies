@@ -1,7 +1,9 @@
 package com.domain.dsmovie.service;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import javax.transaction.Transactional;
 
@@ -72,6 +74,11 @@ public class ScoreService {
 	}
 
 	public Double movieScoreCalc(ScoreFormDTO scorFormDTO) {
+		Locale locale = new Locale("en_US"); 
+		Locale.setDefault(locale);
+		DecimalFormat df = new DecimalFormat("00.00");
+	
+		
 		Double calcScore = 0.0;
 		Double soma = scorFormDTO.getValue();
 		List<Score> scores = new ArrayList<>();
@@ -84,12 +91,14 @@ public class ScoreService {
 		movie = movieService.findById(scorFormDTO.getMovieId());
 		movie.setCount(scores.size() + 1);
 		calcScore = soma / (movie.getCount());
-		movie.setScore(calcScore);
+		String teste = df.format(calcScore);
+		movie.setScore(Double.parseDouble(teste));
 		movieService.save(movie);
 
 		return calcScore;
 	}
 
+	
 	public Score scoreToScoreDTO(ScoreFormDTO scoreDTO) {
 		Score score = new Score();
 		score.setValue(scoreDTO.getValue());
