@@ -17,13 +17,13 @@ function Star({movie} : Props) {
 
     function star() {
 
-        if (movie.score == 5.0) {
+        if (movie.score === 5.0) {
             star1 = <StarFull />;
             star2 = <StarFull />;
             star3 = <StarFull />;
             star4 = <StarFull />;
             star5 = <StarFull />;
-        } else if (movie.score == 1) {
+        } else if (movie.score === 1) {
             star1 = <StarFull />;
             star2 = <StarEmpty />;
             star3 = <StarEmpty />;
@@ -37,7 +37,7 @@ function Star({movie} : Props) {
             star4 = <StarEmpty />;
             star5 = <StarEmpty />;
 
-        } if (movie.score == 2) {
+        } if (movie.score === 2) {
             star1 = <StarFull />;
             star2 = <StarFull />;
             star3 = <StarEmpty />;
@@ -51,7 +51,7 @@ function Star({movie} : Props) {
             star4 = <StarEmpty />;
             star5 = <StarEmpty />;
 
-        } if (movie.score == 3) {
+        } if (movie.score === 3) {
             star1 = <StarFull />;
             star2 = <StarFull />;
             star3 = <StarFull />;
@@ -65,7 +65,7 @@ function Star({movie} : Props) {
             star4 = <StarHalf />;
             star5 = <StarEmpty />;
 
-        } if (movie.score == 4) {
+        } if (movie.score === 4) {
             star1 = <StarFull />;
             star2 = <StarFull />;
             star3 = <StarFull />;
