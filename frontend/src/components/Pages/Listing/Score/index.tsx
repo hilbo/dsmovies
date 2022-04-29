@@ -1,6 +1,3 @@
-import { ReactComponent as StarFull } from 'assets/img/StarFull.svg';
-import { ReactComponent as StarHalf } from 'assets/img/StarHalf.svg';
-import { ReactComponent as StarEmpty } from 'assets/img/StarEmpty.svg';
 import 'components/Pages/Listing/Score/style.css';
 import ButtonAvaliation from 'components/Global/Button/ButtonAvaliation';
 import { Link } from 'react-router-dom';

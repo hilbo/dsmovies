@@ -3,7 +3,7 @@ import ButtonBack from 'components/Global/Button/ButtonBack';
 import { Link } from 'react-router-dom';
 import { Movie } from 'types/movie';
 import React, { useEffect, useState } from 'react';
-import axios, { AxiosRequestConfig, AxiosRequestHeaders } from 'axios';
+import axios, { AxiosRequestConfig} from 'axios';
 import { hostPort } from 'config/conf';
 
 type Props = {
