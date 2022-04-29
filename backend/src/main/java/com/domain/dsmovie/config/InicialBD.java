@@ -16,6 +16,7 @@ import com.domain.dsmovie.service.MovieService;
 import com.domain.dsmovie.service.UserService;
 
 
+
 @Configuration
 @Profile(value = "test" )
 public class InicialBD implements CommandLineRunner {
