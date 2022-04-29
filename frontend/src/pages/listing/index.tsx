@@ -31,7 +31,7 @@ function Listing() {
                 const data2 = resposta.data as MoviePage;
                 setPage(data2);
             })
-    }, [pageNumber]);
+    }, [pageNumber, endPoint]);
 
     
     function changePageNumber (number : number){
