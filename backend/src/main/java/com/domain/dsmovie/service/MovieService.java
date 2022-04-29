@@ -17,8 +17,9 @@ public class MovieService {
 	@Autowired
 	MovieRepository movieRepository;
 	
+	//FindAll com Repository Query ordenado
 	public Page<Movie> findAll(Pageable pageable) {
-		Page<Movie> movies = movieRepository.findAll(pageable);
+		Page<Movie> movies = movieRepository.findAllOrder(pageable);
 		return movies;
 	}
 			

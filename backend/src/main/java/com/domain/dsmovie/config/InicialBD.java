@@ -5,9 +5,9 @@ import java.util.Arrays;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 
 import com.domain.dsmovie.entities.Movie;
-import com.domain.dsmovie.entities.Score;
 import com.domain.dsmovie.entities.User;
 import com.domain.dsmovie.repository.MovieRepository;
 import com.domain.dsmovie.repository.ScoreRepository;
@@ -17,7 +17,9 @@ import com.domain.dsmovie.service.UserService;
 
 
 @Configuration
+@Profile(value = "test" )
 public class InicialBD implements CommandLineRunner {
+
 	@Autowired
 	private UserRepository userRepository;
 	@Autowired
@@ -67,7 +69,7 @@ public class InicialBD implements CommandLineRunner {
 			, movie14, movie15, movie16, movie17, movie18)) {
 			movieService.save(movieTmp);
 		}
-				
+		/*		
 		Score score01 = new Score(); 
 		score01.setUser(user01);
 		score01.setMovie(movie01);
@@ -76,5 +78,7 @@ public class InicialBD implements CommandLineRunner {
 		movie01.setScore(5.0);
 		movieService.save(movie01);
 		scoreRepository.save(score01);
+		*/
 	}
+	
 }
