@@ -89,8 +89,11 @@ public class ScoreService {
 		}
 		Movie movie = new Movie();
 		movie = movieService.findById(scorFormDTO.getMovieId());
+		
 		movie.setCount(scores.size() + 1);
 		calcScore = soma / (movie.getCount());
+		
+		
 		String teste = df.format(calcScore);
 		movie.setScore(Double.parseDouble(teste));
 		movieService.save(movie);
