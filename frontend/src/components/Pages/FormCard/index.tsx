@@ -1,6 +1,6 @@
 import 'components/Pages/FormCard/styles.css';
 import ButtonBack from 'components/Global/Button/ButtonBack';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Movie } from 'types/movie';
 import React, { useEffect, useState } from 'react';
 import axios, { AxiosRequestConfig} from 'axios';
@@ -11,7 +11,8 @@ type Props = {
 }
 
 function FormCard(movieId : Props) {
-    
+    const navegate = useNavigate();
+
     const [movie, setMovie] = useState<Movie>();
     useEffect(() => {
         axios.get(`${hostPort}movies/${movieId.movieId}`)
@@ -39,6 +40,7 @@ function FormCard(movieId : Props) {
         }
 
         axios(conf).then(response => {
+            navegate("/");
             console.log(response.data);
         })
      }
