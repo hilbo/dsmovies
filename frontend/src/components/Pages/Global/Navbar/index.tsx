@@ -6,8 +6,12 @@ function Navbar() {
    
    return (
       <header>
-         <nav className="container">
-            <h1>DSMove</h1>
+         <nav className='container'>
+            <div className='InfoGlobal'>
+               <h1>DSMove</h1>
+               <h2>V1.0.0</h2>
+            </div>
+            
             <div className='StyleGithub'>
                <div className='StyleGithubimg'>
                   <GithubIcon />

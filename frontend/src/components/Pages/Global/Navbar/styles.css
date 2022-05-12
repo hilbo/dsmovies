@@ -12,13 +12,29 @@ header {
     align-items: center;
  }
 
- header nav h1 {
+ .InfoGlobal {
+   display: flex;
+   align-items: center;
+}
+
+ .InfoGlobal h1 {
     align-items: center;
     color: white;
     font-size: 24px;
     font-weight: 700;
     margin-bottom: 0%;
 }
+
+.InfoGlobal h2 {
+
+   color: white;
+   font-size: 12px;
+   font-weight: 400;
+   margin-bottom: 0%;
+   padding-left: 10px;
+   padding-top: 5%;
+}
+
 
 header nav a, a:hover{
     font-size: 15px;
