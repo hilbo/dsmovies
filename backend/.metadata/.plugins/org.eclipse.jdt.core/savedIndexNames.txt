@@ -1,4 +1,0 @@
-INDEX VERSION 1.131+C:\Users\Administrador\Desktop\WorkSpaceHC\projetos\dsmove\.metadata\.plugins\org.eclipse.jdt.core
-2098152338.index
-1865797976.index
-1318595339.index
