@@ -19,6 +19,7 @@ import com.domain.dsmovie.service.UserService;
 @Profile(value = "test" )
 public class InicialBD implements CommandLineRunner {
 
+	
 	@Autowired
 	private UserRepository userRepository;
 	@Autowired
